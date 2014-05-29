@@ -15,7 +15,7 @@ Video.create(title: "The Bourne Identity",
 
 Video.create(title: "The Bourne Supremacy", 
   description: "Some two years after learning that he is a trained assassin and breaking his connections with the CIA, Jason Bourne (Matt Damon) is framed for a crime connected to one of his past missions. A subsequent attempt on his life results in Marie's death, so he decides to take revenge by hunting down those responsible for her death and his forgotten past, thinking that the CIA is hunting him again. Bourne discovers that Ward Abbott (Brian Cox), one of the men who oversaw Operation Treadstone, the program which trained Bourne to be an assassin, stole millions of dollars from the CIA. Abbott meant to implicate Bourne in the theft with the frame-up, which would have led the CIA on a wild goose chase had Bourne been killed as intended. Bourne exposes Abbott to Pamela Landy (Joan Allen), the CIA officer in charge of finding Bourne, and Abbott commits suicide. During a long car chase with Bourne, the Russian agent who was paid to kill him and was responsible for Marie's death is killed, and Bourne goes into hiding.", 
-  small_cover_url: "/tmp/bourne_supremacy.jpg"),
+  small_cover_url: "/tmp/bourne_supremacy.jpg",
   large_cover_url: "/tmp/bourne_supremacy_large.jpg")
 
 Video.create(title: "The Bourne Ultimatum", 
@@ -29,7 +29,7 @@ Video.create(title: "The Wind Rises",
   large_cover_url: "/tmp/wind_rises_large.jpg")
 
 Video.create(title: "Spirited Away", 
-  description: "Spirited Away (千と千尋の神隠し Sen to Chihiro no Kamikakushi, is a 2001 Japanese animated fantasy film written and directed by Hayao Miyazaki and produced by Studio Ghibli.[3] The film stars Rumi Hiiragi, Miyu Irino, Mari Natsuki, Takeshi Naito, Yasuko Sawaguchi, Tsunehiko Kamijō, Takehiko Ono and Bunta Sugawara, and tells the story of Chihiro Ogino (Hiiragi), a sullen ten-year-old girl who, while moving to a new neighborhood, enters the spirit world. After her parents are transformed into pigs by the witch Yubaba (Natsuki), Chihiro takes a job working in Yubaba's bathhouse to find a way to free herself and her parents and return to the human world.", 
+  description: "Spirited Away (千と千尋の神隠し Sen to Chihiro no Kamikakushi), is a 2001 Japanese animated fantasy film written and directed by Hayao Miyazaki and produced by Studio Ghibli. The film stars Rumi Hiiragi, Miyu Irino, Mari Natsuki, Takeshi Naito, Yasuko Sawaguchi, Tsunehiko Kamijō, Takehiko Ono and Bunta Sugawara, and tells the story of Chihiro Ogino (Hiiragi), a sullen ten-year-old girl who, while moving to a new neighborhood, enters the spirit world. After her parents are transformed into pigs by the witch Yubaba (Natsuki), Chihiro takes a job working in Yubaba's bathhouse to find a way to free herself and her parents and return to the human world.", 
   small_cover_url: "/tmp/spirited_away.jpg",
   large_cover_url: "/tmp/spirited_away_large.jpg")
 
