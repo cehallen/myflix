@@ -9,8 +9,10 @@ describe Category do
 
   it "has many videos" do
     action = Category.create(name: "Action")
-    bourne1 = Video.create(title: "Bourne1", description: "Run fight run")
-    bourne2 = Video.create(title: "Bourne2", description: "Run run fight")
-    expect(action.videos).to eq(bourne1, bourne2)
+    bourne1 = Video.create(title: "Bourne1", description: "Run fight run", 
+      category: action)
+    bourne2 = Video.create(title: "Bourne2", description: "Run run fight",
+      category: action)
+    expect(action.videos).to eq([bourne1, bourne2])
   end
 end

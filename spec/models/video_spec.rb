@@ -14,4 +14,11 @@ describe Video do
 
     expect(Video.count).to eq(prev_count + 1)
   end
+
+  it "belongs to a category" do
+    animation = Category.create(name: 'Animation')
+    spirited_away = Video.create(title: 'Spirited Away', description: 'Nice movie',
+      category: animation)
+    expect(spirited_away.category).to eq(animation)
+  end
 end
