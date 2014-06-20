@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
   # name: string
 
-  has_many :videos, -> { order(title: :desc) }
+  has_many :videos, -> { order(title: :asc) }
 end
