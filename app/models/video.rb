@@ -3,6 +3,12 @@ class Video < ActiveRecord::Base
   # description : text
   # small_cover_url : string
   # large_cover_url : string
-  
+  validates :title, presence: true
+  validates :description, presence: true
   belongs_to :category
+
+  def self.search_by_title(search_term)
+    search = "%#{search_term}%"
+    where("title LIKE ?", search).order(created_at: :desc)
+  end
 end

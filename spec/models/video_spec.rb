@@ -1,24 +1,45 @@
 require 'spec_helper'
 
 describe Video do
-  it "should save when given proper attributes" do
-    prev_count = Video.count
-
-    Video.create(
-      category: Category.find_by_name("Animation"),
-      title: 'Spirited Away',
-      description: 'Good movie',
-      small_cover_url: "/tmp/spirited_away.jpg",
-      large_cover_url: "/tmp/spirited_away_large.jpg"
-      ) 
-
-    expect(Video.count).to eq(prev_count + 1)
+  context 'associations' do
+    it { should belong_to(:category) }
   end
 
-  it "belongs to a category" do
-    animation = Category.create(name: 'Animation')
-    spirited_away = Video.create(title: 'Spirited Away', description: 'Nice movie',
-      category: animation)
-    expect(spirited_away.category).to eq(animation)
+  context 'validations' do
+    it { should have_valid(:title).when('Totoro') }
+    it { should_not have_valid(:title).when(nil, '') }
+
+    it { should have_valid(:description).when('Totoro dreams of sushi') }
+    it { should_not have_valid(:description).when('', nil) }
+  end
+
+  describe 'search_by_title' do
+    it "returns an empty array if there is no match" do
+      elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller")
+      mosquito_squadron = Video.create(title: "Mosquito Squad", description: "RAF in WW2")
+
+      expect(Video.search_by_title("Hey there")).to eq([]) 
+    end
+
+    it "returns an array of one video for an exact match" do
+      elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller")
+      mosquito_squadron = Video.create(title: "Mosquito Squad", description: "RAF in WW2")
+
+      expect(Video.search_by_title("Elite Squad")).to eq([elite_squad])
+    end
+
+    it "returns an array of one or more videos for partial matches" do
+      elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller")
+      mosquito_squadron = Video.create(title: "Mosquito Squad", description: "RAF in WW2")
+
+      expect(Video.search_by_title("quito")).to eq([mosquito_squadron])
+    end
+
+    it "returns an array of all matches ordered by created at" do
+      elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller")
+      mosquito_squadron = Video.create(title: "Mosquito Squad", description: "RAF in WW2")
+
+      expect(Video.search_by_title("squad")).to eq([mosquito_squadron, elite_squad])
+    end
   end
 end
