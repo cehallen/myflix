@@ -21,6 +21,10 @@ describe Video do
       expect(Video.search_by_title("Hey there")).to eq([]) 
     end
 
+    it "returns an empty array if search is left blank" do
+      expect(Video.search_by_title("")).to eq([])
+    end
+
     it "returns an array of one video for an exact match" do
       elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller")
       mosquito_squadron = Video.create(title: "Mosquito Squad", description: "RAF in WW2")

@@ -8,6 +8,7 @@ class Video < ActiveRecord::Base
   belongs_to :category
 
   def self.search_by_title(search_term)
+    return [] if search_term.blank?
     search = "%#{search_term}%"
     where("title LIKE ?", search).order(created_at: :desc)
   end
