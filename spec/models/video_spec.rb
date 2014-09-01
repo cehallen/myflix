@@ -18,7 +18,7 @@ describe Video do
       elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller")
       mosquito_squadron = Video.create(title: "Mosquito Squad", description: "RAF in WW2")
 
-      expect(Video.search_by_title("Hey there")).to eq([]) 
+      expect(Video.search_by_title("Hey there")).to eq([])
     end
 
     it "returns an empty array if search is left blank" do
@@ -40,10 +40,10 @@ describe Video do
     end
 
     it "returns an array of all matches ordered by created at" do
-      elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller")
+      elite_squad = Video.create(title: "Elite Squad", description: "Rio slum thriller", created_at: 10.days.ago)
       mosquito_squadron = Video.create(title: "Mosquito Squad", description: "RAF in WW2")
 
-      expect(Video.search_by_title("squad")).to eq([mosquito_squadron, elite_squad])
+      expect(Video.search_by_title("squad")).to eq([elite_squad, mosquito_squadron])
     end
   end
 end
